@@ -8,6 +8,7 @@ import { AddPageComponent } from "./add-page/add-page.component";
 import { OrdersPageComponent } from "./orders-page/orders-page.component";
 import { EditPageComponent } from "./edit-page/edit-page.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { authGuard } from "../shared/auth.guard";
 
 @NgModule({
     declarations: [
@@ -38,19 +39,23 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
                     },
                     {
                         path: 'dashboard',
-                        component: DashboardComponent
+                        component: DashboardComponent,
+                        canActivate: [authGuard]
                     },
                     {
                         path: 'add',
-                        component: AddPageComponent
+                        component: AddPageComponent,
+                        canActivate: [authGuard]
                     },
                     {
                         path: 'orders',
-                        component: OrdersPageComponent
+                        component: OrdersPageComponent,
+                        canActivate: [authGuard]
                     },
                     {
                         path: 'product/:id/edit',
-                        component: EditPageComponent
+                        component: EditPageComponent,
+                        canActivate: [authGuard]
                     }
                 ]
             }

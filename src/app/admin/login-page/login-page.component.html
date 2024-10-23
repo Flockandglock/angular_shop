@@ -8,23 +8,29 @@
             <div class="validation">
                 @if (form.controls.email.errors?.['required']) {
                     <small>Enter email</small>
-                } 
+                } @else if (form.controls.email.errors?.['email']) {
+                    <small>Enter valid email</small>
+                }
+                 
             </div>
         }
-        
     </div>
 
-    <!-- <div class="form-control">
+    <div class="form-control">
         <label for="password">Password</label>
         <input id="password" type="password" formControlName="password">
-        <div *ngIf="form.get('password').touched && form.get('password').invalid" class="validation">
-            <small *ngIf="form.get('password').errors.required">Enter password</small>
-            <small *ngIf="form.get('password').errors.minlength">
-                Password must be least {{form.get('password').errors.minlength.requiredLength}} characters. 
-                Now he {{form.get('password').errors.minlength.actualLength}}
-            </small>
-        </div>
-    </div> -->
+        @if (form.controls.password.touched && form.controls.password.invalid) {
+            <div class="validation">
+                @if (form.controls.password.errors?.['required']) {
+                    <small>Enter Password</small>
+                } @else if (form.controls.password.errors?.['minlength']) {
+                    <small>Password must be at least {{form.controls.password.errors?.['minlength']?.['requiredLength']}} characters.
+                        Now he {{form.controls.password.errors?.['minlength']?.['actualLength']}}
+                    </small>
+                }
+            </div>
+        }
+    </div>
 
-    <!-- <button type="submit" class="btn btn-primary btn-block" [disabled]="from.invalid || submited">Logon</button> -->
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted">Logon</button>
 </form>
