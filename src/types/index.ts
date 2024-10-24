@@ -14,3 +14,16 @@ export interface IResponseAuth {
   refreshToken: string | null | undefined,
   expiresIn: string | null | undefined
 }
+
+export interface IProduct {
+  type: string | null | undefined,
+  title: string | null | undefined,
+  photo: string | null | undefined,
+  info: string | null | undefined,
+  price: string | null | undefined,
+  date: Date 
+}
+
+export interface IFbResponse {
+  name: string
+}

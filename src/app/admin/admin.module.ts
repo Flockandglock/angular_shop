@@ -1,13 +1,17 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+
+import { QuillModule } from 'ngx-quill';
+
 import { AdminLayoutComponent } from "./shared/admin-layout/admin-layout.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AddPageComponent } from "./add-page/add-page.component";
 import { OrdersPageComponent } from "./orders-page/orders-page.component";
 import { EditPageComponent } from "./edit-page/edit-page.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
 import { authGuard } from "../shared/auth.guard";
 
 @NgModule({
@@ -23,6 +27,7 @@ import { authGuard } from "../shared/auth.guard";
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        QuillModule.forRoot(),
         RouterModule.forChild([
             {
                 path: '',
