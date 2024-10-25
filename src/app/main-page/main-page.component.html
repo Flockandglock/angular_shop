@@ -1,1 +1,7 @@
-<p>main-page works!</p>
+@if (products$ | async; as products) {
+    <div class="dashboard">
+        @for (product of products; track product.title) {
+            <app-product [product]="product" class="box"></app-product>
+        }
+    </div>
+}

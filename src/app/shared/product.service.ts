@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 
@@ -21,6 +21,18 @@ export class ProductService {
           id: res.name,
           date: new Date(product.date)
         }
+      }))
+  }
+
+  public getAll(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(`${environment.fbDbURL}/products.json`)
+      .pipe(map((res: any) => {
+        return Object.keys(res)
+          .map(key => ({
+            ...res[key],
+            id: key,
+            date: new Date(res[key].date)
+          }))
       }))
   }
 }
