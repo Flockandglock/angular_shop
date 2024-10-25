@@ -36,7 +36,7 @@ export class AuthService {
 
     if ( expDate && new Date > expDate) {
       this.logout()
-      return null
+      return undefined
     } else {
       return localStorage.getItem('fb-token')
     }
