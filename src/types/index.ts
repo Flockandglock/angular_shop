@@ -16,11 +16,11 @@ export interface IResponseAuth {
 }
 
 export interface IProduct {
-  type: string | null | undefined,
-  title: string | null | undefined,
-  photo: string | null | undefined,
-  info: string | null | undefined,
-  price: string | null | undefined,
+  type?: string | null | undefined,
+  title?: string | null | undefined,
+  photo?: string | null | undefined,
+  info?: string | null | undefined,
+  price?: string | null | undefined,
   date: Date 
 }
 
