@@ -24,6 +24,10 @@ export interface IProduct {
   date: Date 
 }
 
+export interface IProductInApp extends IProduct {
+  id: string
+}
+
 export interface IFbResponse {
   name: string
 }

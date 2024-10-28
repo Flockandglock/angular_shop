@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ProductService } from '../shared/product.service';
-import { IProduct } from '../../types';
+import { IProduct, IProductInApp } from '../../types';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class MainPageComponent implements OnInit {
 
-  public products$?: Observable<IProduct[]>;
+  public products$?: Observable<IProductInApp[]>;
 
   constructor(
     private prudactServ: ProductService

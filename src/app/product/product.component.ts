@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { IProduct } from '../../types';
+import { IProduct, IProductInApp } from '../../types';
 
 
 @Component({
@@ -9,5 +9,5 @@ import { IProduct } from '../../types';
   styleUrl: './product.component.scss'
 })
 export class ProductComponent {
-  @Input() product?: IProduct;
+  @Input() product?: IProductInApp;
 }

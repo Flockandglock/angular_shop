@@ -4,7 +4,7 @@ import { map, Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 
-import { IFbResponse, IProduct } from '../../types';
+import { IFbResponse, IProduct, IProductInApp } from '../../types';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class ProductService {
       }))
   }
 
-  public getAll(): Observable<IProduct[]> {
+  public getAll(): Observable<IProductInApp[]> {
     return this.http.get<Record<string, IProduct>>(`${environment.fbDbURL}/products.json`)
       .pipe(map((res) => {
         return Object.keys(res)
@@ -36,7 +36,7 @@ export class ProductService {
       }))
   }
 
-  public getById(id:string): Observable<IProduct> {
+  public getById(id:string): Observable<IProductInApp> {
     return this.http.get<IProduct>(`${environment.fbDbURL}/products/${id}.json`)
       .pipe(map((res: IProduct) => {
         return {
@@ -45,5 +45,13 @@ export class ProductService {
             date: new Date(res.date)
           }
       }))
+  }
+
+  public remove (id: string) {
+    return this.http.delete(`${environment.fbDbURL}/products/${id}.json`)
+  }
+
+  public update (priduct: IProductInApp) {
+    return this.http.patch(`${environment.fbDbURL}/products/${priduct.id}.json`, priduct)
   }
 }
