@@ -51,7 +51,7 @@ export class ProductService {
     return this.http.delete(`${environment.fbDbURL}/products/${id}.json`)
   }
 
-  public update (priduct: IProductInApp) {
-    return this.http.patch(`${environment.fbDbURL}/products/${priduct.id}.json`, priduct)
+  public update (product: IProductInApp) {
+    return this.http.patch(`${environment.fbDbURL}/products/${product.id}.json`, product)
   }
 }

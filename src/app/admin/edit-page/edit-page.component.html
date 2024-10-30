@@ -1,7 +1,7 @@
 
-<div *ngIf="form; else loading">
-    <form [formGroup]="form" >
-        <h2 class="text-center">Edit product</h2>
+<div *ngIf="form; else loading" >
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <h2 class="text-center">Update product</h2>
     
         <div class="form-control">
             <label for="type">Type</label>
@@ -37,10 +37,10 @@
             </div>
         </div>
     
-        <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid">Add</button>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted">Uddate</button>
     </form>
 </div>
     
-    <ng-template #loading>
-        <p class="text-center">Loading...</p>
-    </ng-template>
+<ng-template #loading>
+    <p class="text-center">Loading...</p>
+</ng-template>

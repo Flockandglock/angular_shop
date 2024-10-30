@@ -16,8 +16,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class EditPageComponent implements OnInit {
 
   public product?: IProductInApp;
-  public form: FormGroup = new FormGroup({});
-  // public form = new FormGroup({});
+  public form?: FormGroup;
+  public submitted = false;
 
 
   constructor(
@@ -45,5 +45,26 @@ export class EditPageComponent implements OnInit {
     })
   }
 
+  submit() {
+    if (this.form?.invalid) {
+      return
+    }
+
+    this.submitted = true;
+
+    this.productServ.update({
+      ...this.product,
+      id: this.product?.id || '',
+      type: this.form?.value.type,
+      title: this.form?.value.title,
+      photo: this.form?.value.photo,
+      info: this.form?.value.info,
+      price: this.form?.value.price,
+      date: new Date()
+    }).subscribe(res => {
+      this.submitted = false;
+      this.router.navigate(['/admin', 'dashboard'])
+    })
+  }
  
 }
