@@ -11,6 +11,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { AuthInterseptor } from './shared/auth.interseptor';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -21,7 +22,8 @@ import { AuthInterseptor } from './shared/auth.interseptor';
     MainLayoutComponent,
     MainPageComponent,
     ProductPageComponent,
-    CartPageComponent
+    CartPageComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
